@@ -5,7 +5,9 @@ export default class AuthorDetailController extends Controller {
 
   @action
   deleteAuthor(author) {
-    author.deleteRecord().then(() => {
+    author.deleteRecord()
+
+    author.save().then(() => {
       this.transitionToRoute("author.index")
     })
   }
